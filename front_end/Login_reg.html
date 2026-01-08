@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onnume illa</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <div class="container">
+  <h2>HabitIQ</h2>
+  <div id="login-form" class="form-section active">
+    <input type="email" placeholder="Email" id="login-email" required>
+    <input type="password" placeholder="Password" id="login-password" required minlength="8"
+  pattern="(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}"
+  title="Password must be at least 8 characters, include one capital letter, one number, and one symbol">
+    <button type="button" onclick="login()">Login</button>
+
+    <div class ="toggle-link"> Don't have an account?   <a href="#" onclick="showRegister()">Register</a></div>
+    </div>
+  
+  <div id="register-form" class="form-section">
+    <input type="text" id="register-first-name" placeholder="First Name" required>
+    <input type="text" id="register-last-name" placeholder="Last Name" required>
+    <input type="date" id="register-date-of-birth" placeholder="Birth-Date" required>
+    <input type="tel" id="register-number" placeholder="Ph Number" required>
+    <input type="email" id="register-email" placeholder="Email" required>
+    <input type="password" id="register-password" placeholder="password" required>
+    <button type="button" onclick="register()">Register</button>
+    <div class="toggle-link">
+      Already have an account?
+    <a href="#" onclick="showLogin()">Login</a>
+    </div>
+  </div>
+  </div>
+
+  <script src="login_script.js"></script>
+</body>
+
+
+</html>
