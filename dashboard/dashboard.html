@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    
+</head>
+<body>
+<div class="container">
+    <header class="header-card">
+    <div class="header-left">
+        <h1>TRACKER</h1>
+        <div class="habit-input-container">
+            <input type="text" id="habitInput" placeholder="Enter new habit..." aria-label="New habit name">
+            <button id="addHabitBtn">Add Habit</button>
+        </div>
+    </div>
+
+    <div class="header-right">
+        <div id="user-display" class="user-info">User: Guest_User</div>
+        <div id="meta-info" class="meta-display">
+            Year: 2025 Month: 12 Day: 29
+        </div>
+    </div>
+</header>
+
+    <main class="main-content">
+        <div class="card">
+            <div class="table-responsive">
+                <table>
+                    <div class="week-nav-container">
+    <div class="week-controls">
+        <button id="prevWeekBtn" onclick="changeWeek(-7)" class="nav-btn" title="Previous Week">&lt;</button>
+        <span id="weekRangeDisplay" class="week-label">Loading week...</span>
+        <button id="nextWeekBtn" onclick="changeWeek(7)" class="nav-btn" id="nextWeekBtn" title="Next Week" disabled>&gt;</button>
+    </div>
+</div>
+                    <thead>
+                        <tr id="table-header">
+                            <th>Habits / Days</th>
+                            <th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th><th>S</th>
+                        </tr>
+                    </thead>
+                    <tbody id="habitBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+      <div class="card graph-container">
+    <div class="card-header">
+        <h3 class="card-title">Monthly Activity</h3>
+        <div class="month-nav">
+            <button id="prevMonthBtn" onclick="prevMonth()" class="nav-btn">&lt;</button>
+            <span id="currentMonthDisplay">December 2025</span>
+            <button id="nextMonthBtn" onclick="nextMonth()" class="nav-btn" disabled>&gt;</button>
+        </div>
+    </div>
+    <div class="chart-wrapper" style="height: 300px; position: relative;">
+        <canvas id="activityChart"></canvas>
+    </div>
+</div>
+
+    <div class="card notes-section">
+    <div class="card-header">
+        <h3 class="card-title">Daily Reflection & Notes</h3>
+        <span id="notesDateLabel" class="meta-display">December 29, 2025</span>
+    </div>
+    <textarea id="dailyNoteInput" 
+              placeholder="How was your day? Why were habits missed? Plan for tomorrow..." 
+              spellcheck="false"></textarea>
+    <div id="saveStatus" class="save-indicator">All changes saved</div>
+</div>
+    </main>
+
+    <aside class="sidebar">
+        <div class="card progress-section">
+    <h3>Day Progress</h3>
+    <div class="progress-container">
+        <svg class="progress-ring-svg" width="120" height="120">
+            <circle class="progress-ring-bg" stroke="#e2e8f0" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+            <circle class="progress-ring-bar" id="progressCircle" stroke="#2563eb" stroke-width="8" stroke-linecap="round" fill="transparent" r="52" cx="60" cy="60"/>
+        </svg>
+        <div class="progress-text">
+            <span id="progressPercent">0%</span>
+            <small id="progressCount">0/0</small>
+        </div>
+    </div>
+</div>
+
+        
+       
+<div class="card ranking-section">
+    <h3>Monthly Top Habits</h3>
+    <table class="ranking-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Habit</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody id="rankingBody">
+            </tbody>
+    </table>
+</div>
+
+<div class="card streak-container">
+    <h3>Habit Streaks</h3>
+    <div class="streak-stats">
+        <div class="streak-box">
+            <span class="streak-label">Current</span>
+            <span id="currentStreak" class="streak-val">0</span>
+        </div>
+        <div class="streak-box">
+            <span class="streak-label">Max (Month)</span>
+            <span id="maxStreak" class="streak-val">0</span>
+        </div>
+    </div>
+</div>
+        
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
