@@ -1,6 +1,0 @@
-flask
-flask-pymongo
-flask-cors
-pymongo
-bcrypt
-gunicorn
